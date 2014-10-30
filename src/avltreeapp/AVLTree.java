@@ -142,44 +142,7 @@ public class AVLTree<T extends Comparable<T>> {
         
         }
         
-        
-        
-        if(height_inc){
-            if(x.bf == 0)
-                x.bf = -1;
-            else if(x.bf == 1){
-                x.bf = 0;
-                height_inc = false;
-            }
-            else{
-                if(x.right().bf == -1){
-                    l_rotate(x);
-                    x.bf = x.parent().bf = 0;
-                    height_inc = false;
-                }
-                else if(x.right().bf == 1){
-                    int b = x.right().left().bf;
-                    lr_rotate(x);
-                    x.parent().bf = 0;
-                    if (b == 0)
-                        x.bf = x.parent().right().bf = 0;
-                    else if(b == 1){
-                        x.bf = 0;
-                        x.parent().right().bf = -1;
-                    }
-                    else if(b == -1){
-                        x.bf = 1;
-                        x.parent().right().bf = 0;
-                    }
-                    height_inc = false;
-                }
-            }
-        }
-        return x;
-    }
-    
-    
-    
+       
     /**
      * Links x's parent to y and y's parent is changed accordingly
      * @param x a node
